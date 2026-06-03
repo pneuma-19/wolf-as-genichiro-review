@@ -1,0 +1,87 @@
+sekiro_boss_control.dll  -  PE import table
+SHA-256: 0ffa116f2387db66205232d3884616d91cc20d6592d7a3df19dc8bf700938276
+Size:    861184 bytes
+================================================================
+
+[KERNEL32.dll]  (71 imports)
+   LoadLibraryA, GetProcAddress, GetLastError, CreateTimerQueueTimer, GetCurrentProcess, 
+   VirtualQuery, ReadProcessMemory, WriteProcessMemory, GetProcessHeap, HeapFree, 
+   QueryPerformanceCounter, CreateFileMappingA, MapViewOfFile, GetModuleHandleA, CloseHandle, 
+   GetSystemTimePreciseAsFileTime, UnmapViewOfFile, GetCurrentProcessId, GetModuleFileNameW, 
+   GetCurrentThreadId, OpenThread, ResumeThread, SuspendThread, GetThreadContext, SetThreadContext, 
+   CreateToolhelp32Snapshot, Thread32First, Thread32Next, AddVectoredExceptionHandler, 
+   VirtualProtect, CreateThread, SwitchToThread, HeapReAlloc, GetModuleHandleW, SetLastError, 
+   GetCurrentDirectoryW, RtlCaptureContext, RtlLookupFunctionEntry, WaitForSingleObjectEx, 
+   lstrlenW, CreateMutexA, ReleaseMutex, WideCharToMultiByte, RtlVirtualUnwind, GetStdHandle, 
+   GetConsoleMode, GetConsoleOutputCP, WaitForSingleObject, MultiByteToWideChar, WriteConsoleW, 
+   HeapAlloc, GetEnvironmentVariableW, CreateDirectoryW, GetFullPathNameW, FindFirstFileExW, 
+   FindClose, CreateFileW, SetFileTime, SetFileInformationByHandle, GetFileInformationByHandle, 
+   GetFileInformationByHandleEx, FormatMessageW, QueryPerformanceFrequency, GetCurrentThread, 
+   SetThreadStackGuarantee, CreateWaitableTimerExW, SetWaitableTimer, Sleep, LoadLibraryExA, 
+   InitializeSListHead, GetSystemTimeAsFileTime
+
+[ntdll.dll]  (3 imports)
+   NtWriteFile, RtlNtStatusToDosError, NtReadFile
+
+[oleaut32.dll]  (2 imports)
+   SysStringLen, SysFreeString
+
+[bcryptprimitives.dll]  (1 imports)
+   ProcessPrng
+
+[api-ms-win-core-synch-l1-2-0.dll]  (3 imports)
+   WakeByAddressSingle, WakeByAddressAll, WaitOnAddress
+
+[user32.dll]  (4 imports)
+   GetAsyncKeyState, GetForegroundWindow, GetWindowThreadProcessId, SendInput
+
+[VCRUNTIME140.dll]  (8 imports)
+   __std_type_info_destroy_list, __C_specific_handler, _CxxThrowException, memmove, memcmp, memcpy, 
+   memset, __CxxFrameHandler3
+
+[api-ms-win-crt-string-l1-1-0.dll]  (1 imports)
+   strlen
+
+[api-ms-win-crt-runtime-l1-1-0.dll]  (8 imports)
+   _execute_onexit_table, _seh_filter_dll, _cexit, _configure_narrow_argv, 
+   _initialize_onexit_table, _initterm, _initterm_e, _initialize_narrow_environment
+
+[api-ms-win-crt-heap-l1-1-0.dll]  (1 imports)
+   free
+
+================================================================
+NETWORK-LIBRARY CHECK (Winsock / WinINet / WinHTTP / etc.)
+  RESULT: NONE. No ws2_32 / wsock32 / wininet / winhttp / urlmon /
+          iphlpapi / dnsapi / mswsock imports of any kind.
+  => This DLL cannot open a network connection.
+
+Imported DLLs (10): KERNEL32.dll, ntdll.dll, oleaut32.dll, bcryptprimitives.dll, api-ms-win-core-synch-l1-2-0.dll, user32.dll, VCRUNTIME140.dll, api-ms-win-crt-string-l1-1-0.dll, api-ms-win-crt-runtime-l1-1-0.dll, api-ms-win-crt-heap-l1-1-0.dll
+================================================================
+PACKAGE CONTENTS  -  sekiro_boss_control_release_en.zip
+SHA-256: 685edb7beff05cacc8774469b544c97251e1b7c03d87e2e43bc1927721405fcb
+================================================================
+        4426  README.txt
+        1439  keybinds.ini
+        1115  modengine.ini
+      153293  mods/action/eventnameid.txt
+      510352  mods/action/script/c0000_cmsg.hks
+      417330  mods/action/script/c0000_transition.hks
+       92583  mods/action/statenameid.txt
+      811712  mods/chr/c0000.anibnd.dcx
+      228560  mods/chr/c0000.behbnd.dcx
+     5397568  mods/chr/c0000_a000_hi.anibnd.dcx
+     5085376  mods/chr/c0000_a07x.anibnd.dcx
+       24705  mods/dll_data/c7100_synth.bin
+      312085  mods/param/gameparam/gameparam.parambnd.dcx
+      114212  mods/script/m11_00_00_00.luabnd.dcx
+      195504  mods/script/m11_01_00_00.luabnd.dcx
+      117450  mods/script/m11_02_00_00.luabnd.dcx
+      861184  sekiro_boss_control.dll  <-- binary
+
+Executable binaries in package: 1
+  - sekiro_boss_control.dll  (our own mod DLL; import table above  -  no networking)
+
+Note: ModEngine's dinput8.dll is NOT bundled. Users install it separately
+from katalash's Nexus page (sekiro/mods/6). modengine.ini is a plain-text
+config file (it only tells the user-installed ModEngine to load the DLL above).
+All other files are Sekiro game-data resources (.dcx/.hks/.txt/.ini).
